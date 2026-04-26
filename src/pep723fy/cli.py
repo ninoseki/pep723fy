@@ -7,8 +7,8 @@ from .main import inject
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="p723fy",
-        description="Project pyproject.toml dependencies into PEP 723 inline script metadata.",
+        prog="pep723fy",
+        description="Inject pyproject.toml or requirements.txt dependencies as PEP 723 inline script metadata.",
     )
     parser.add_argument(
         "destination",
@@ -19,7 +19,6 @@ def build_parser() -> argparse.ArgumentParser:
         "source",
         type=Path,
         nargs="?",
-        default=Path("pyproject.toml"),
         help="Path to the source pyproject.toml or requirements.txt (default: ./pyproject.toml).",
     )
     parser.add_argument(
