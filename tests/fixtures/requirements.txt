@@ -1,0 +1,7 @@
+# top-level comment
+httpx>=0.27
+rich  # inline comment
+-r other.txt
+-e .
+
+uv==0.11.7
