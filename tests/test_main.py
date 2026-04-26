@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pytest
 
+from pep723fy.errors import DestinationHasMetadataError
 from pep723fy.main import (
     PEP723_BLOCK,
     Metadata,
@@ -63,7 +64,7 @@ def test_inject_refuses_existing_block_without_force(
 ) -> None:
     original = destination_with_block.read_text(encoding="utf-8")
 
-    with pytest.raises(Exception):
+    with pytest.raises(DestinationHasMetadataError):
         inject(source, destination_with_block)
 
     assert destination_with_block.read_text(encoding="utf-8") == original
@@ -107,9 +108,7 @@ def test_read_source_dispatches_by_extension(
     )
 
 
-def test_inject_from_requirements(
-    requirements_source: Path, tmp_path: Path
-) -> None:
+def test_inject_from_requirements(requirements_source: Path, tmp_path: Path) -> None:
     destination = tmp_path / "out.py"
     inject(requirements_source, destination)
 
@@ -120,9 +119,7 @@ def test_inject_from_requirements(
     assert "requires-python" not in content
 
 
-def test_inject_preserves_shebang(
-    source: Path, destination_with_shebang: Path
-) -> None:
+def test_inject_preserves_shebang(source: Path, destination_with_shebang: Path) -> None:
     inject(source, destination_with_shebang)
 
     content = destination_with_shebang.read_text(encoding="utf-8")
