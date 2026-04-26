@@ -1,6 +1,6 @@
 # pep723fy
 
-Inject [PEP 723](https://peps.python.org/pep-0723/) inline script metadata into a Python file, sourced from a `pyproject.toml` ([PEP 621](https://peps.python.org/pep-0621/) / [PEP 735](https://peps.python.org/pep-0735/)) or a pip-style `requirements.txt`.
+Inject [PEP 723](https://peps.python.org/pep-0723/) inline script metadata into a Python file from a `pyproject.toml` ([PEP 621](https://peps.python.org/pep-0621/) / [PEP 735](https://peps.python.org/pep-0735/)) or `requirements.txt`.
 
 ## Installation
 
