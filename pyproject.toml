@@ -50,6 +50,9 @@ dev = [
 [tool.uv]
 default-groups = ["dev"]
 
+[tool.ruff]
+extend-exclude = ["tests/fixtures"]
+
 [tool.ruff.lint]
 select = [
   "B",   # flake8-bugbear
